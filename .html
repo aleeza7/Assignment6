@@ -1,0 +1,288 @@
+<html> 
+<head> 
+<title> 
+Magic Word
+</title>
+ 
+<style> 
+body {
+       align-content: center;  
+        color: white;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display:grid;
+ 
+        text-align: center;
+         font-size: 40px;
+ 
+         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+         gap: 10px;
+ 
+         height: 99vh;
+         width: 99vw;
+}
+ 
+.input1 {
+       grid-column-start: 1;
+          grid-column-end: 3;
+          grid-row-start: 2;
+          grid-row-end: 4;
+        }
+ 
+.button2 {
+        grid-column-start: 3;
+          grid-column-end: 5;
+          grid-row-start: 2;
+          grid-row-end: 3;
+     }
+     .button3 {
+        grid-column-start: 3;
+          grid-column-end: 5;
+          grid-row-start: 3;
+          grid-row-end: 4;
+     }
+        .button4 {
+        grid-column-start: 5;
+          grid-column-end: 7;
+          grid-row-start: 2;
+          grid-row-end: 3;
+     }
+        .button5 {
+        grid-column-start: 5;
+          grid-column-end: 7;
+          grid-row-start: 3;
+          grid-row-end: 4;
+     }
+        .button6 {
+        grid-column-start: 7;
+          grid-column-end: 9;
+          grid-row-start: 2;
+          grid-row-end: 3;
+     }
+    .button7 {
+        grid-column-start: 7;
+          grid-column-end: 9;
+          grid-row-start: 3;
+          grid-row-end: 4;
+     }
+ 
+.resetall {
+      grid-row-start: 4; 
+       grid-row-end:  5; 
+       grid-column-start: 1; 
+       grid-column-end: 2; 
+}
+ 
+.p1 { 
+          grid-column-start: 4;
+          grid-column-end: 7;
+          grid-row-start: 5;
+          grid-row-end: 6;
+    }
+</style>
+ 
+<script>
+ 
+var currentInput = ""; 
+var mw = ""; 
+var length = 0; 
+var middle = 0; 
+var ccbinputvar = "";
+var count = 0;
+ 
+var begin = "";
+var end = "";
+ 
+function controls()
+{
+  inputText = document.getElementById("p1").value;
+  magicWordLength = currentinput.length
+  if(length==0)
+  {
+    document.getElementById("buttonSeven").disabled = true; 
+    document.getElementById("buttonFive").disabled = true; 
+   document.getElementById("buttonThree").disabled = true;
+  }
+   if(length>=18) 
+    {
+      document.getElementById("buttonTwo").disabled = true; 
+      document.getElementById("buttonSix").disabled = true;
+      document.getElementById("buttonFour").disabled = true;
+    }
+ 
+    if(length>0) {
+                  document.getElementById("buttonSeven").disabled = false; 
+                  document.getElementById("buttonFive").disabled = false; 
+                  document.getElementById("buttonThree").disabled = false;
+                 }
+    if(length<18)
+    {
+      document.getElementById("buttonTwo").disabled = false; 
+      document.getElementById("buttonSix").disabled = false;
+      document.getElementById("buttonFour").disabled = false; 
+    }
+}
+function addBeginning() 
+{
+    currentInput = document.getElementById("a1").value; 
+    mw = mw + currentInput; 
+    document.getElementById("paragraph1").innerHTML = mw; 
+    document.getElementById("a1").value = ""; 
+    document.getElementById("a1").focus(); 
+    length = mw.length;
+controls() 
+}
+ 
+function placeholder() 
+{
+    currentInput = document.getElementById("a1").value; 
+    document.getElementById("a1").value = ""; 
+    document.getElementById("a1").focus(); 
+    length = mw.length;
+    middle = Math.round(length/2); 
+    mw = mw.substring(0,middle) + currentInput + mw.substring(middle, mw.length); 
+  controls()
+}
+ 
+function addEnd() 
+{ 
+    currentInput = document.getElementById("a1").value; 
+    mw = mw + currentInput; 
+    document.getElementById("a1").value = ""; 
+    document.getElementById("a1").focus(); 
+  document.getElementById("paragraph1").innerHTML = mw; 
+    length = mw.length;
+ 
+controls()
+}
+function inputFunction ()
+  { 
+    currentInput = document.getElementById("a1").value; 
+   if(currentInput=="") 
+    {
+      document.getElementById("buttonTwo").disabled = false;  
+      document.getElementById("buttonSix").disabled = false;
+      document.getElementById("buttonFour").disabled = false;
+    } 
+    if(length>0) 
+    {
+     document.getElementById("buttonThree").disabled = false; 
+     document.getElementById("buttonFive").disabled = false;
+     document.getElementById("buttonSeven").disabled = false;
+    }
+controls()
+}
+ 
+function subtractBeginning()
+  {
+    document.getElementById("a1").value = ""; 
+    document.getElementById("a1").focus(); 
+    mw = mw.substring(1);  
+    length = mw.length; 
+    controls()
+}
+function substractEnd() 
+{
+    document.getElementById("a1").value = ""; 
+    document.getElementById("a1").focus(); 
+    currentInput = document.getElementById("a1").value; 
+    mw = mw.substring(0,mw.length-1); 
+    length = mw.length; 
+    controls()
+      document.getElementById("paragraph1").innerHTML = mw; 
+}
+ 
+   
+function subtractMiddle()
+  { 
+    document.getElementById("a1").value = ""; 
+    document.getElementById("a1").focus(); 
+    length = mw.length;
+    middle = Math.round(length/2); 
+    mw = mw.substring(0,middle - 1) + mw.substring(middle, mw.length); 
+  controls()
+    document.getElementById("paragraph1").innerHTML = mw;
+ 
+}
+ 
+ 
+  function ccb() 
+{
+   ccbinputvar = document.getElementById("ccbinput").value;
+     for(let i=1; i<=18; i++;) 
+     {
+         if(ccbinputvar >=1) {
+         count++;
+          }
+ 
+  
+      document.getElementById("p2").innerHTML = "The string" + ccbinputvar + "appears" + count + "times."
+ 
+          }
+  function searchString() 
+   {
+document.getElementById("p2").value = "";  
+
+ 
+   }
+</script>
+</head>
+<body> <body style="background-color: green;">
+ 
+    <div class="p1" id="paragraph1">
+</div>
+ 
+    <div class="input1"> 
+<input id="a1" maxlength="1" style="height: 40px" onkeyup="inputFunction()"> 
+</div>
+ 
+    <div class="button2"> 
+<button id="buttonTwo" onclick="addBeginning()" style="height: 40px" style="width: 200px" disabled="true"> Add Beginning </button>
+</div>
+<div class="button3"> 
+<button id="buttonThree" onclick="subtractBeginning()" style="height: 40px" style="width: 200px" disabled ="true"> 
+          Delete Beginning 
+</button>
+</div>
+<div class="button4">
+<button id="buttonFour" onclick="placeholder()" style="height: 40px" style="width: 200px" disabled="true"> 
+          Add Middle 
+</button>
+</div>
+ 
+    <div class="button6">
+<button id="buttonSix" onclick="addEnd()" style="height: 40px" style="width: 200px" disabled="true">
+          Add End
+</button>
+</div>
+ 
+ 
+    <div class="button5">
+<button id="buttonFive" onclick="subtractMiddle()" style="height: 40px" style="width: 200px" disabled ="true"> 
+          Delete Middle
+</button>
+ 
+    </div>
+ 
+    <div class="button7"> 
+<button id="buttonSeven" onclick="substractEnd()" style="height: 40px" style="width: 200px" disabled="true">
+          Delete End
+</button>
+</div>
+<div>
+<button id = "ccountbutton" onclick = "ccb()" maxlength="1"> Character Count </button>
+<input id = "ccbinput"> 
+</div>
+<div> 
+<button id = "searchit" onclick = "searchString()" maxlength="18"> Search
+</button>
+<input id = "searchinput"> 
+</div>
+<p id = "p2">
+ 
+</p>
+ 
+ 
+</body>
+ 
+</html>
