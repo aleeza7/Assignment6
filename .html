@@ -95,8 +95,9 @@ var end = "";
  
 function controls()
 {
-  inputText = document.getElementById("p1").value;
-  magicWordLength = currentinput.length
+ length = mw.length;
+  currentInput = document.getElementById("a1").value;
+  magicWordLength = currentInput.length;
   if(length==0)
   {
     document.getElementById("buttonSeven").disabled = true; 
@@ -122,30 +123,34 @@ function controls()
       document.getElementById("buttonFour").disabled = false; 
     }
 }
+ 
 function addBeginning() 
 {
+ controls() ;
     currentInput = document.getElementById("a1").value; 
     mw = mw + currentInput; 
     document.getElementById("paragraph1").innerHTML = mw; 
     document.getElementById("a1").value = ""; 
     document.getElementById("a1").focus(); 
     length = mw.length;
-controls() 
+
 }
  
 function placeholder() 
 {
+  controls();
     currentInput = document.getElementById("a1").value; 
     document.getElementById("a1").value = ""; 
     document.getElementById("a1").focus(); 
     length = mw.length;
     middle = Math.round(length/2); 
     mw = mw.substring(0,middle) + currentInput + mw.substring(middle, mw.length); 
-  controls()
+ 
 }
  
 function addEnd() 
 { 
+ controls();
     currentInput = document.getElementById("a1").value; 
     mw = mw + currentInput; 
     document.getElementById("a1").value = ""; 
@@ -153,10 +158,10 @@ function addEnd()
   document.getElementById("paragraph1").innerHTML = mw; 
     length = mw.length;
  
-controls()
 }
 function inputFunction ()
   { 
+   controls();
     currentInput = document.getElementById("a1").value; 
    if(currentInput=="") 
     {
@@ -164,43 +169,48 @@ function inputFunction ()
       document.getElementById("buttonSix").disabled = false;
       document.getElementById("buttonFour").disabled = false;
     } 
-    if(length>0) 
-    {
-     document.getElementById("buttonThree").disabled = false; 
-     document.getElementById("buttonFive").disabled = false;
-     document.getElementById("buttonSeven").disabled = false;
-    }
-controls()
+     if(currentInput>0)   
+     {
+      document.getElementById("buttonThree").disabled = false; 
+       document.getElementById("buttonFive").disabled = false;
+       document.getElementById("buttonSeven").disabled = false;
+     }
+
+
 }
  
 function subtractBeginning()
   {
+   controls();
     document.getElementById("a1").value = ""; 
     document.getElementById("a1").focus(); 
     mw = mw.substring(1);  
     length = mw.length; 
-    controls()
+    
 }
-function substractEnd() 
+ 
+function subtractEnd() 
 {
+ controls();
     document.getElementById("a1").value = ""; 
     document.getElementById("a1").focus(); 
     currentInput = document.getElementById("a1").value; 
     mw = mw.substring(0,mw.length-1); 
     length = mw.length; 
-    controls()
+    
       document.getElementById("paragraph1").innerHTML = mw; 
 }
  
    
 function subtractMiddle()
   { 
+    controls();
     document.getElementById("a1").value = ""; 
     document.getElementById("a1").focus(); 
     length = mw.length;
     middle = Math.round(length/2); 
     mw = mw.substring(0,middle - 1) + mw.substring(middle, mw.length); 
-  controls()
+ 
     document.getElementById("paragraph1").innerHTML = mw;
  
 }
@@ -209,16 +219,16 @@ function subtractMiddle()
   function ccb() 
 {
    ccbinputvar = document.getElementById("ccbinput").value;
-     for(let i=1; i<=18; i++;) 
+     for(let i=1; i<=18; i++) 
      {
          if(ccbinputvar >=1) {
          count++;
           }
- 
-  
+      
       document.getElementById("p2").innerHTML = "The string" + ccbinputvar + "appears" + count + "times."
  
           }
+} 
   function searchString() 
    {
 document.getElementById("p2").value = "";  
@@ -265,7 +275,7 @@ document.getElementById("p2").value = "";
     </div>
  
     <div class="button7"> 
-<button id="buttonSeven" onclick="substractEnd()" style="height: 40px" style="width: 200px" disabled="true">
+<button id="buttonSeven" onclick="subtractEnd()" style="height: 40px" style="width: 200px" disabled="true">
           Delete End
 </button>
 </div>
