@@ -187,6 +187,8 @@ function subtractBeginning()
     mw = mw.substring(1);  
     length = mw.length; 
     
+  document.getElementById("paragraph1").innerHTML = mw; 
+    
 }
  
 function subtractEnd() 
@@ -219,15 +221,18 @@ function subtractMiddle()
   function ccb() 
 {
    ccbinputvar = document.getElementById("ccbinput").value;
-     for(let i=1; i<=18; i++) 
-     {
-         if(ccbinputvar >=1) {
-         count++;
+ var cCount = ""; 
+     for(let i=0; i<length; i++) {
+  
+        ccbcount = word.subtring(i, i+1); 
+       if(ccbcount==ccbinputvar)  
+        {
+          count++;
           }
       
-      document.getElementById("p2").innerHTML = "The string" + ccbinputvar + "appears" + count + "times."
+      document.getElementById("p2").innerHTML = "The string " + ccbinputvar + " appears " + count + " times.";
  
-          }
+          
 } 
   function searchString() 
    {
@@ -288,9 +293,9 @@ document.getElementById("p2").value = "";
 </button>
 <input id = "searchinput"> 
 </div>
-<p id = "p2">
+<center><p id = "p2">
  
-</p>
+</center></p>
  
  
 </body>
