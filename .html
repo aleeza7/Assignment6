@@ -89,6 +89,8 @@ var length = 0;
 var middle = 0; 
 var ccbinputvar = "";
 var count = 0;
+ var searchsearch = "";
+ var searchCount = 0;
  
 var begin = "";
 var end = "";
@@ -127,8 +129,9 @@ function controls()
 function addBeginning() 
 {
  controls() ;
+     mw = currentInput+ mw; 
     currentInput = document.getElementById("a1").value; 
-    mw = mw + currentInput; 
+
     document.getElementById("paragraph1").innerHTML = mw; 
     document.getElementById("a1").value = ""; 
     document.getElementById("a1").focus(); 
@@ -220,24 +223,40 @@ function subtractMiddle()
  
   function ccb() 
 {
+ count = 0;
    ccbinputvar = document.getElementById("ccbinput").value;
- var cCount = ""; 
-     for(let i=0; i<length; i++) {
-  
-        ccbcount = word.subtring(i, i+1); 
-       if(ccbcount==ccbinputvar)  
+
+     for(let i=0; i<length; i++) 
+     {
+   var cCount = ""; 
+        cCount = mw.substring(i, i+1); 
+       if(cCount==ccbinputvar)  
         {
           count++;
-          }
-      
-      document.getElementById("p2").innerHTML = "The string " + ccbinputvar + " appears " + count + " times.";
+           document.getElementById("p2").innerHTML = "The string " + ccbinputvar + " appears " + count + " times.";
+          } 
  
-          
+ }
 } 
   function searchString() 
    {
-document.getElementById("p2").value = "";  
-
+    searchsearch = "";
+searchsearch = document.getElementById("searchinput").value;  
+    searchCount = searchsearch.length
+  for(let i=0; i<length; i + searchCount) 
+  {
+   var sSearch;
+   
+   sSearch = mw.substring(i, i + searchCount)
+   begin = mw.substring(i
+     if(sSearch==searchinput) {
+                             document.getElementById("p3").innerHTML = "Your string, " + searchsearch + "is found after" + 
+     }
+                       
+else { 
+document.getElementById("p3").innerHTML = "Your string, " + searchsearch + "was not found." ;
+                    }
+                    
  
    }
 </script>
@@ -293,7 +312,7 @@ document.getElementById("p2").value = "";
 </button>
 <input id = "searchinput"> 
 </div>
-<center><p id = "p2">
+<center><p id = "p2"> 
  
 </center></p>
  
