@@ -94,6 +94,7 @@ var count = 0;
  
 var begin = "";
 var end = "";
+ var sepCount = 0;
  
 function controls()
 {
@@ -237,27 +238,32 @@ function subtractMiddle()
           } 
  
  }
+
 } 
   function searchString() 
    {
     searchsearch = "";
 searchsearch = document.getElementById("searchinput").value;  
-    searchCount = searchsearch.length
-  for(let i=0; i<length; i + searchCount) 
+    searchCount = searchsearch.length;
+  for(let i=0; i<length; i++) 
   {
-   var sSearch;
-   
-   sSearch = mw.substring(i, i + searchCount)
-   begin = mw.substring(i
-     if(sSearch==searchinput) {
-                             document.getElementById("p3").innerHTML = "Your string, " + searchsearch + "is found after" + 
+   var sSearch = "";
+   sSearch = mw.substring(i, i + searchCount);
+   if (sSearch == searchsearch) 
+   {
+sepcount = sepCount + 1; 
+    if (sepCount ==1) 
+    { 
+   begin = mw.substring(0, i);
+   end = mw.substring (i + searchCount, length);
+    document.getElementById("p3").innerHTML = "Your string, " + searchsearch + ", is found" + sepCount + "time. And comes after" + begin + "and before" end ".";
      }
+   }
+  }
                        
 else { 
 document.getElementById("p3").innerHTML = "Your string, " + searchsearch + "was not found." ;
-                    }
-                    
- 
+}
    }
 </script>
 </head>
