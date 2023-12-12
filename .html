@@ -15,7 +15,7 @@ body {
          font-size: 40px;
  
          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
-         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
          gap: 10px;
  
          height: 99vh;
@@ -149,6 +149,7 @@ function placeholder()
     length = mw.length;
     middle = Math.round(length/2); 
     mw = mw.substring(0,middle) + currentInput + mw.substring(middle, mw.length); 
+  document.getElementById("paragraph1").innerHTML = mw; 
  
 }
  
@@ -252,23 +253,25 @@ searchsearch = document.getElementById("searchinput").value;
    if (sSearch == searchsearch) 
    {
 sepcount = sepCount + 1; 
-    if (sepCount ==1) 
+    if (sepCount >= 1) 
     { 
    begin = mw.substring(0, i);
    end = mw.substring (i + searchCount, length);
-    document.getElementById("p3").innerHTML = "Your string, " + searchsearch + ", is found" + sepCount + "time. And comes after" + begin + "and before" end ".";
-     }
+    document.getElementById("p2").innerHTML = "Your string, " + searchsearch + ", is found" + sepCount + "time. And comes after" + begin + "and before" + end;
+    }
    }
-  
-                       
-else { 
-document.getElementById("p3").innerHTML = "Your string, " + searchsearch + "was not found." ;
-}
   }
+if (sepCount==0) { 
+document.getElementById("p2").innerHTML = "Your string, " + searchsearch + " was not found." ;
+
+    
    }
+  }
+   
+ 
 </script>
 </head>
-<body> <body style="background-color: green;">
+<body style="background-color: #5EC6FA ;">
  
     <div class="p1" id="paragraph1">
 </div>
