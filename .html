@@ -1,3 +1,4 @@
+
 <html> 
 <head> 
 <title> 
@@ -235,12 +236,21 @@ function subtractMiddle()
        if(cCount==ccbinputvar)  
         {
           count++;
-           document.getElementById("p2").innerHTML = "The string " + ccbinputvar + " appears " + count + " times.";
+       
           } 
+     }
+ if(count>1)
+{
+document.getElementById("p2").innerHTML = "The string " + ccbinputvar + " appears " + count + " times.";
+}
  
- }
-
+else if(count==1) {
+    document.getElementById("p2").innerHTML = "The string " + ccbinputvar + " appears " + count + " times.";
 } 
+
+
+}
+
   function searchString() 
    {
     searchsearch = "";
