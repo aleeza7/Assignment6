@@ -80,6 +80,12 @@ body {
           grid-row-start: 5;
           grid-row-end: 6;
     }
+ .p2 { 
+          grid-column-start: 4;
+          grid-column-end: 7;
+          grid-row-start: 5;
+          grid-row-end: 6;
+    }
 </style>
  
 <script>
@@ -241,11 +247,11 @@ function subtractMiddle()
      }
  if(count>1)
 {
-document.getElementById("p2").innerHTML = "The string " + ccbinputvar + " appears " + count + " times.";
+document.getElementById("p22").innerHTML = "The string " + ccbinputvar + " appears " + count + " times.";
 }
  
 else if(count==1) {
-    document.getElementById("p2").innerHTML = "The string " + ccbinputvar + " appears " + count + " times.";
+    document.getElementById("p22").innerHTML = "The string " + ccbinputvar + " appears " + count + " times.";
 } 
 
 
@@ -253,6 +259,7 @@ else if(count==1) {
 
   function searchString() 
    {
+    sepCount = 0;
     searchsearch = "";
 searchsearch = document.getElementById("searchinput").value;  
     searchCount = searchsearch.length;
@@ -262,21 +269,23 @@ searchsearch = document.getElementById("searchinput").value;
    sSearch = mw.substring(i, i + searchCount);
    if (sSearch == searchsearch) 
    {
-sepcount = sepCount + 1; 
+sepCount = sepCount + 1; 
     if (sepCount >= 1) 
     { 
    begin = mw.substring(0, i);
    end = mw.substring (i + searchCount, length);
-    document.getElementById("p2").innerHTML = "Your string, " + searchsearch + ", is found" + sepCount + "time. And comes after" + begin + "and before" + end;
+    document.getElementById("p22").innerHTML = "Your string, " + searchsearch + ", is found" + sepCount + " time. And comes after " + begin + " and before " + end;
     }
    }
   }
+   
+ 
 if (sepCount==0) { 
-document.getElementById("p2").innerHTML = "Your string, " + searchsearch + " was not found." ;
+document.getElementById("p22").innerHTML = "Your string, " + searchsearch + " was not found." ;
 
     
+}
    }
-  }
    
  
 </script>
@@ -327,16 +336,17 @@ document.getElementById("p2").innerHTML = "Your string, " + searchsearch + " was
 <button id = "ccountbutton" onclick = "ccb()" maxlength="1"> Character Count </button>
 <input id = "ccbinput"> 
 </div>
-<div> 
+<div class = "p2">
+<center><p id = "p22"> 
+ 
+</center></p>
+</div>
+ 
+ <div> 
 <button id = "searchit" onclick = "searchString()" maxlength="18"> Search
 </button>
 <input id = "searchinput"> 
 </div>
-<center><p id = "p2"> 
- 
-</center></p>
- 
- 
 </body>
  
 </html>
